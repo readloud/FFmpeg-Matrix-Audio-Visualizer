@@ -283,7 +283,7 @@ melt \
 	-mix 12 -mixer luma \
 	-consumer avformat:/res.mp4 frame_rate_num=25 width=1920 height=1080 sample_aspect_num=1 sample_aspect_den=1
 ```
-Full list of Xfade filters
+# Full list of Xfade filters
 ```
 fade
 wipeleft
@@ -408,4 +408,15 @@ file 'blank.mp4'
 ```
 ```
 ffmpeg -f concat -safe 0 -i mylist.txt -c copy output.mp4
+```
+
+## YCgCo color matrix and Full Color Range, which are non-standard for most video editing workflows. By using setparams and format=yuv420p, you manually forced the video to use the BT.709 standard, which is what YouTube and your script's filters (like hue and overlay) expect.
+```
+ffmpeg -i YCgCo.mp4 -vf "colorspace=all=bt709:irange=tv:ispace=bt709:itp=bt709,format=yuv420p" -c:v libx264 -crf 18 -c:a copy  anime_loop_fixed.mp4
+```
+```
+ffmpeg -i YCgCo.mp4  -vf "colorspace=all=bt709:trc=bt709:primary=bt709:space=bt709,format=yuv420p" -c:v libx264 -crf 18 -c:a copy anime_loop_fixed.mp4
+```
+```
+ffmpeg -i YCgCo.mp4 -vf "setparams=color_primaries=bt709:color_trc=bt709:colorspace=bt709,format=yuv420p" -c:v libx264 -crf 18 -c:a copy anime_loop_fixed.mp4
 ```

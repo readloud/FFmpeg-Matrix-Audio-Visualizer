@@ -141,6 +141,9 @@ mode=line sets the style of the waveform to a connected line. Other popular mode
 [0:v] selects the original video stream.
 [waveform] selects the waveform video stream you just created.
 
+*To sit perfectly at the bottom: overlay=x=0:y=H-h
+*To float slightly above the bottom: overlay=x=0:y=H-h-20
+
 overlay is the filter that places the waveform video on top of the main video.
 0:H-h sets the position of the waveform. 0 means 0 pixels from the left edge. H-h is a dynamic expression that calculates the vertical position: it takes the height of the main video (H) and subtracts the height of the waveform (h), effectively placing the waveform at the very bottom of the frame.
 -c:a copy: This tells FFmpeg to copy the original audio stream directly to the output file without re-encoding it, which preserves quality and saves time.
