@@ -70,7 +70,7 @@ An automated **FFmpeg**-based script to convert audio files (MP3) into aesthetic
 2. Paste direct MP3 URLs (one per line).
 3. Run `render_url.bat`.
 
-![media_info](docs/Kenny%20G%20Greatest%20Hits%20Full%20Album%20-%20Kenny%20G%20Best%20Collection_YT.mp4_thumbs.jpg)
+![media_info](docs/licensed-image.jfif)
 
 🛠️ Troubleshooting
 Issue	Solution
